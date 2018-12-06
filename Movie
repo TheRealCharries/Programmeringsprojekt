@@ -1,0 +1,66 @@
+public class Movie
+{
+    /*FileInputStream fis = new FileInputStream("someFile") ;
+    ArrayList allMovies = fis.stream();
+    .split("\n")
+    .map((ms) => new Movie(ms.split(";")))
+    .collect(Collectors.toList());*/
+    //Skal ind i denne klasse? Hvor?
+    
+    
+    final String name;
+    final long year;
+    final String genre[];
+    double rating;    
+
+    public Movie(String ... args) //uendelige antal argumenter
+    {
+        FileInputStream fis = new FileInputStream("someFile") ;
+        ArrayList allMovies = fis.stream();
+        
+        //exception, movies == null
+        name = args[0];
+        year = Integer.parseInt(args[1]);
+        genre = args[2].split(",");
+        rating = double.parseInt(args[3]); //double+int? Lave string til int/double - hvorfor?? Pga komma måske?
+    }
+    
+    public String getName()
+    {
+        return name;
+    }
+    
+    public String getGenre()
+    {
+        return genre;
+    }
+    
+    public int getYear()
+    {
+        return year;
+    }
+    
+    public Image getImage() //Mangler der noget? Hvordan ved hvilken film?
+    {
+        return Image.load("movies/" + this.name);
+    }
+    
+    public double getRating()
+    {
+        return rating;
+    }
+    
+    public boolean isRrated()
+    {   
+        //hvordan finder man ud af om r-rated?
+        crime, war, thriller, action, horror
+
+    }
+    
+    public void addMovie()
+    {
+        //Hvad skal den add'e til?
+    }
+    
+    
+}
