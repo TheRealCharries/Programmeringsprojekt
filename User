@@ -1,0 +1,38 @@
+public class User
+{
+    protected String name;
+    protected int age;
+    protected boolean child;
+    
+    public User(String name, int age)
+    {
+        this.name = name;
+        this.age = age;
+        child = false;
+    }
+
+    public String getName(){
+        return name;
+    }
+    
+    public int getAge(){
+        return age;
+    }
+    
+    public boolean SetAllowance(){
+        if(age >= 13){
+            return true;
+        }
+        else {
+            return false;
+        }
+    } 
+   
+    public String toString(){
+        if(SetAllowance() == false) {
+            return name + " " + age + " år" + " Barn";}
+        else{ 
+            return name + " " + age + " år" + " Voksen";
+        }
+    }
+}
