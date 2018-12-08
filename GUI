@@ -8,27 +8,33 @@ public class GUI extends JFrame{
     JPanel panel;
 
     JMenuBar menubar;
-    JMenu filmMenu, TvSerierMenu;
+    JMenu filmMenu, TvSerierMenu, userMenu;
     JMenuItem item1,item2, item3, item4, subitem1, subitem2, subitem3, subitem4, subitem5, subitem6, subitem7, subitem8, subitem9, subitem10, subitem11, subitem12, subitem13, subitem14,
-    subitem15, subitem16, subitem17, subitem18, subitem19, subitem20;
+    subitem15, subitem16, subitem17, subitem18, subitem19, subitem20, useritem1, useritem2;
     
     
     public GUI(){
     frame = new JFrame();
     panel= new JPanel(new BorderLayout(2,2));
-
     menubar = new JMenuBar();
+    
     JMenu FilmMenu, submenu1, submenu2;
     item1 = new JMenuItem("          A-Z           ");
     item2 = new JMenuItem("          Årstal        ");
     item3 = new JMenuItem("          A-Z           ");
     item4 = new JMenuItem("          Årstal        ");
 
+    useritem2 = new JMenuItem("      Skift bruger   ");
+    useritem1 = new JMenuItem("      Se profil      ");
     
     JMenu filmMenu= new JMenu("            Film             ");
     filmMenu.add(item1);
     filmMenu.add(item2);
-
+    
+    JMenu userMenu = new JMenu("            User             ");
+    userMenu.add(useritem1);
+    userMenu.add(useritem2);
+    
     filmMenu.addSeparator();
     submenu1 = new JMenu("          Genre     ");
     subitem1 = new JMenuItem("   Action   ");
@@ -71,7 +77,6 @@ public class GUI extends JFrame{
     filmMenu.add(submenu1);
     submenu1.add(subitem10);
     
-    menubar.add(filmMenu);
     
     JMenu TvSeriesMenu = new JMenu("       Tv serier         ");
     TvSeriesMenu.add(item3);
@@ -118,21 +123,23 @@ public class GUI extends JFrame{
     subitem20 = new JMenuItem("   Thriller   ");
     TvSeriesMenu.add(submenu2);
     submenu2.add(subitem20);
+
     
-
-
-    menubar.add(TvSeriesMenu);
+    menubar.setLayout(new BorderLayout());
+    menubar.add(filmMenu, BorderLayout.LINE_START);
+    menubar.add(TvSeriesMenu, BorderLayout.CENTER);
+    menubar.add(userMenu, BorderLayout.LINE_END);
+    menubar.setPreferredSize(new Dimension(500, 50));
+    
     panel.setLayout(new BorderLayout());
     panel.add(menubar, BorderLayout.SOUTH);
     panel.setPreferredSize(new Dimension(20,20));
     
     frame.add(panel,BorderLayout.NORTH);
-
     frame.setJMenuBar(menubar);
     frame.setSize(1000,800);
-    frame.getContentPane().setBackground(new Color(99,66,00));
+    frame.getContentPane().setBackground(new Color(98,98,98));
     frame.getContentPane().add(menubar,BorderLayout.NORTH);
-    menubar.setPreferredSize(new Dimension(500, 50));
     frame.setVisible(true);
     
 
