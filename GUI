@@ -2,6 +2,18 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.JMenu;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.awt.Dimension;
 
 public class GUI extends JFrame{
     JFrame frame;
@@ -14,133 +26,113 @@ public class GUI extends JFrame{
     
     
     public GUI(){
-    frame = new JFrame();
-    panel= new JPanel(new BorderLayout(2,2));
-    menubar = new JMenuBar();
+        frame = new JFrame();
+        panel= new JPanel(new BorderLayout(2,2));
+        menubar = new JMenuBar();
     
-    JMenu FilmMenu, submenu1, submenu2;
-    item1 = new JMenuItem("          A-Z           ");
-    item2 = new JMenuItem("          Årstal        ");
-    item3 = new JMenuItem("          A-Z           ");
-    item4 = new JMenuItem("          Årstal        ");
+        JMenu FilmMenu, submenu1, submenu2;
+        item1 = new JMenuItem("          A-Z           ");
+        item2 = new JMenuItem("          Årstal        ");
+        item3 = new JMenuItem("          A-Z           ");
+        item4 = new JMenuItem("          Årstal        ");
 
-    useritem2 = new JMenuItem("      Skift bruger   ");
-    useritem1 = new JMenuItem("      Se profil      ");
+        useritem2 = new JMenuItem("      Skift bruger   ");
+        useritem1 = new JMenuItem("      Se profil      ");
+        
+        JMenu filmMenu= new JMenu("            Film             ");
+        filmMenu.add(item1);
+        filmMenu.add(item2);
     
-    JMenu filmMenu= new JMenu("            Film             ");
-    filmMenu.add(item1);
-    filmMenu.add(item2);
+        JMenu userMenu = new JMenu("            User             ");
+        userMenu.add(useritem1);
+        userMenu.add(useritem2);
+ 
+        filmMenu.addSeparator();
+        submenu1 = new JMenu("          Genre     ");
+        subitem1 = new JMenuItem("   Action   ");
+        submenu1.add(subitem1);
     
-    JMenu userMenu = new JMenu("            User             ");
-    userMenu.add(useritem1);
-    userMenu.add(useritem2);
+        subitem2 = new JMenuItem("   Drama   ");
+        submenu1.add(subitem2);
     
-    filmMenu.addSeparator();
-    submenu1 = new JMenu("          Genre     ");
-    subitem1 = new JMenuItem("   Action   ");
-    filmMenu.add(submenu1);
-    submenu1.add(subitem1);
+        subitem3 = new JMenuItem("   Familie Film   ");
+        filmMenu.add(submenu1);
+        submenu1.add(subitem3);
     
-    subitem2 = new JMenuItem("   Drama   ");
-    filmMenu.add(submenu1);
-    submenu1.add(subitem2);
+        subitem4 = new JMenuItem("   Gysere   ");
+        submenu1.add(subitem4);
     
-    subitem3 = new JMenuItem("   Familie Film   ");
-    filmMenu.add(submenu1);
-    submenu1.add(subitem3);
+        subitem5 = new JMenuItem("   Familie Film   ");
+        submenu1.add(subitem5);
     
-    subitem4 = new JMenuItem("   Gysere   ");
-    filmMenu.add(submenu1);
-    submenu1.add(subitem4);
+        subitem6 = new JMenuItem("   Komedie   ");
+        submenu1.add(subitem6);
     
-    subitem5 = new JMenuItem("   Familie Film   ");
-    filmMenu.add(submenu1);
-    submenu1.add(subitem5);
+        subitem7 = new JMenuItem("   Krimi   ");
+        submenu1.add(subitem7);
     
-    subitem6 = new JMenuItem("   Komedie   ");
-    filmMenu.add(submenu1);
-    submenu1.add(subitem6);
-    
-    subitem7 = new JMenuItem("   Krimi   ");
-    filmMenu.add(submenu1);
-    submenu1.add(subitem7);
-    
-    subitem8 = new JMenuItem("   Romantik   ");
-    filmMenu.add(submenu1);
-    submenu1.add(subitem8);
+        subitem8 = new JMenuItem("   Romantik   ");
+        submenu1.add(subitem8);
 
-    subitem9 = new JMenuItem("   Sci-fi og fantasy   ");
-    filmMenu.add(submenu1);
-    submenu1.add(subitem9);
+        subitem9 = new JMenuItem("   Sci-fi og fantasy   ");
+        submenu1.add(subitem9);
     
-    subitem10 = new JMenuItem("   Thriller   ");
-    filmMenu.add(submenu1);
-    submenu1.add(subitem10);
+        subitem10 = new JMenuItem("   Thriller   ");
+        submenu1.add(subitem10);
     
+        JMenu TvSeriesMenu = new JMenu("       Tv serier         ");
+        TvSeriesMenu.add(item3);
+        TvSeriesMenu.add(item4);
+        
+        TvSeriesMenu.addSeparator();
+        submenu2 = new JMenu("          Genre     ");
+        subitem11 = new JMenuItem("   Action   ");
+        submenu2.add(subitem11);
     
-    JMenu TvSeriesMenu = new JMenu("       Tv serier         ");
-    TvSeriesMenu.add(item3);
-    TvSeriesMenu.add(item4);
+        subitem12 = new JMenuItem("   Drama   ");
+        submenu2.add(subitem12);
     
-    TvSeriesMenu.addSeparator();
-    submenu2 = new JMenu("          Genre     ");
-    subitem11 = new JMenuItem("   Action   ");
-    TvSeriesMenu.add(submenu2);
-    submenu2.add(subitem11);
+        subitem13 = new JMenuItem("   Familie Film   ");;
+        submenu2.add(subitem13);
     
-    subitem12 = new JMenuItem("   Drama   ");
-    TvSeriesMenu.add(submenu2);
-    submenu2.add(subitem12);
+        subitem14 = new JMenuItem("   Gysere   ");
+        submenu2.add(subitem14);
     
-    subitem13 = new JMenuItem("   Familie Film   ");
-    TvSeriesMenu.add(submenu2);
-    submenu2.add(subitem13);
+        subitem15 = new JMenuItem("   Familie Film   ");
+        submenu2.add(subitem15);
     
-    subitem14 = new JMenuItem("   Gysere   ");
-    TvSeriesMenu.add(submenu2);
-    submenu2.add(subitem14);
+        subitem16 = new JMenuItem("   Komedie   ");
+        submenu2.add(subitem16);
     
-    subitem15 = new JMenuItem("   Familie Film   ");
-    TvSeriesMenu.add(submenu2);
-    submenu2.add(subitem15);
+        subitem17 = new JMenuItem("   Krimi   ");
+        submenu2.add(subitem17);
     
-    subitem16 = new JMenuItem("   Komedie   ");
-    TvSeriesMenu.add(submenu2);
-    submenu2.add(subitem16);
+        subitem18 = new JMenuItem("   Romantik   ");
+        submenu2.add(subitem18);
     
-    subitem17 = new JMenuItem("   Krimi   ");
-    TvSeriesMenu.add(submenu2);
-    submenu2.add(subitem17);
+        subitem19 = new JMenuItem("   Sci-fi og fantasy   ");
+        submenu2.add(subitem19);
     
-    subitem18 = new JMenuItem("   Romantik   ");
-    TvSeriesMenu.add(submenu2);
-    submenu2.add(subitem18);
-
-    subitem19 = new JMenuItem("   Sci-fi og fantasy   ");
-    TvSeriesMenu.add(submenu2);
-    submenu2.add(subitem19);
+        subitem20 = new JMenuItem("   Thriller   ");
+        submenu2.add(subitem20);
+        TvSeriesMenu.add(submenu2);
     
-    subitem20 = new JMenuItem("   Thriller   ");
-    TvSeriesMenu.add(submenu2);
-    submenu2.add(subitem20);
-
+        menubar.setLayout(new BorderLayout());
+        menubar.add(filmMenu, BorderLayout.LINE_START);
+        menubar.add(TvSeriesMenu, BorderLayout.CENTER);
+        menubar.add(userMenu, BorderLayout.LINE_END);
+        menubar.setPreferredSize(new Dimension(500, 50));
     
-    menubar.setLayout(new BorderLayout());
-    menubar.add(filmMenu, BorderLayout.LINE_START);
-    menubar.add(TvSeriesMenu, BorderLayout.CENTER);
-    menubar.add(userMenu, BorderLayout.LINE_END);
-    menubar.setPreferredSize(new Dimension(500, 50));
+        panel.setLayout(new BorderLayout());
+        panel.add(menubar, BorderLayout.SOUTH);
+        panel.setPreferredSize(new Dimension(20,20));
     
-    panel.setLayout(new BorderLayout());
-    panel.add(menubar, BorderLayout.SOUTH);
-    panel.setPreferredSize(new Dimension(20,20));
-    
-    frame.add(panel,BorderLayout.NORTH);
-    frame.setJMenuBar(menubar);
-    frame.setSize(1000,800);
-    frame.getContentPane().setBackground(new Color(98,98,98));
-    frame.getContentPane().add(menubar,BorderLayout.NORTH);
-    frame.setVisible(true);
+        frame.add(panel,BorderLayout.NORTH);
+        frame.setJMenuBar(menubar);
+        frame.setSize(1000,800);
+        frame.getContentPane().setBackground(new Color(98,98,98));
+        frame.getContentPane().add(menubar,BorderLayout.NORTH);
+        frame.setVisible(true);
     
 
     }
