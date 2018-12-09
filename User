@@ -1,3 +1,4 @@
+import java.util.*;
 public class User
 {
     protected String name;
@@ -9,6 +10,7 @@ public class User
         this.name = name;
         this.age = age;
         child = false;
+        //users.add(this);
     }
 
     public String getName(){
@@ -20,19 +22,17 @@ public class User
     }
     
     public boolean SetAllowance(){
-        if(age >= 13){
-            return true;
-        }
-        else {
-            return false;
-        }
+        return 13 <= age ;
     } 
    
     public String toString(){
-        if(SetAllowance() == false) {
+        if(!SetAllowance()) {
             return name + " " + age + " år" + " Barn";}
         else{ 
             return name + " " + age + " år" + " Voksen";
         }
     }
+    
+    //static ArrayList<User> users = new ArrayList<>();
+    
 }
