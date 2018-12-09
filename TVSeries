@@ -1,0 +1,55 @@
+import java.util.ArrayList;
+
+public class TVSeries {//extends Movies{
+    private String title;
+    private int startYear;
+    private String endYear;
+    public String genres;
+    private double rating;
+    private boolean isRrated;
+    public int numberOfSeasons;
+    private int totalNumberOfEpisodes;
+    
+    public TVSeries(String title, int startYear, String endYear, String genres, double rating, boolean isRrated, int numberOfSeasons, int totalNumberOfEpisodes){
+        //Throws exception
+        this.title = title;
+        this.startYear = startYear;
+        this.endYear = endYear;
+        this.genres = genres;
+        this.rating = rating;
+        this.isRrated = isRrated;
+        this.numberOfSeasons = numberOfSeasons;
+        this.totalNumberOfEpisodes = totalNumberOfEpisodes;
+    }
+    
+    public String getName(){
+        return title;
+    }
+    public String getGenre(){
+        return genres;
+    }
+    public String getYear(){
+        return startYear + "-" + endYear;
+    }
+    public double getRating(){
+        return rating;
+    }
+    public boolean isRrated(){
+        return isRrated;
+    } 
+    
+    public int getNumberOfSeason(int i){
+        for(i = 0; i < numberOfSeasons; i++){
+            numberOfSeasons = numberOfSeasons + 1;
+        }
+        return numberOfSeasons;
+    }
+    
+    public String toString(){
+        return title + " " + startYear + "-" + endYear + ". Genre: " + genres + ". Forbudt for børn: " + isRrated + ". Antal sæsoner: " + numberOfSeasons;
+    }
+    
+    //public int getNumberOfEpisodes(int x, int season){
+        //int season = season;
+    //}
+}
