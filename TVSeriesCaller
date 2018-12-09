@@ -1,0 +1,228 @@
+import java.util.*;
+
+public class TVSeriesCaller{
+    public static void main(String[] args){
+        TVSeriesCallerStorage display = new TVSeriesCallerStorage();
+        
+        TVSeries show1 = new TVSeries("Twin Peaks", 1990, "1991", "Crime, Drama, Mystery", 8.8, true, 2, 30);
+        TVSeries show2 = new TVSeries("The Sopranos", 1999, "2007", "Crime, Drama", 9.2, true, 6, 86);
+        TVSeries show3 = new TVSeries("Game of Thrones", 2011, "present", "Action, Adventure, Drama", 9.5, true, 7, 67);
+        TVSeries show4 = new TVSeries("Breaking Bad", 2008, "2013", "Crime, Drama, Thriller", 9.5, true, 6, 72);
+        
+        TVSeries show5 = new TVSeries("The Larry Sanders Show", 1992, "1998", "Comedy", 8.3, false, 6, 90);
+        TVSeries show6 = new TVSeries("Curb Your Enthusiasm", 2000, "present", "Comedy", 8.7, false, 9, 90);
+        TVSeries show7 = new TVSeries("Lost", 2004 , "2010", "Adventure, Drama, Fantasy", 8.4, false, 6, 139);
+        TVSeries show8 = new TVSeries("Louie", 2010, "2015", "Comedy, Drama", 8.6, false, 5, 61);
+        TVSeries show9 = new TVSeries("Cheers", 1982, "1993", "Comedy, Drama", 7.8, false, 11, 275);
+        TVSeries show10 = new TVSeries("Scener ur ett äktenskap", 1973, "1973", "Drama", 8.5, false, 1, 6);
+        
+        TVSeries show11 = new TVSeries("Buffy The Vampire Slayer", 1996, "2003", "Action, Drama, Fantasy", 8.2, true, 7, 144);
+        TVSeries show12 = new TVSeries("The Shield", 2002, "2008", "Crime, Drama, Thriller", 8.7, true, 7, 88);
+        TVSeries show13 = new TVSeries("Deadwood", 2004, "2008", "Crime, Drama, History", 8.7, true, 3, 36);
+        TVSeries show14 = new TVSeries("The Marvelous Mrs Maisel", 2017, "present", "Comdey, Drama", 8.7, false, 1, 8);
+        TVSeries show15 = new TVSeries("Horace and Pete's", 2016, "2016", "Comdey, Drama", 8.6, false, 1, 10);
+        TVSeries show16 = new TVSeries("Top Of The Lake", 2013, "present", "Crime, Drama, Mystery", 7.5, false, 2, 13);
+        TVSeries show17 = new TVSeries("The Simpsons", 1989, "present", "Comdey", 8.7, false, 29, 614);
+        TVSeries show18 = new TVSeries("The Walking Dead", 2010, "present, unfortunately", "Drama, Horror, Sci-fi", 8.4, true, 9, 131);
+        TVSeries show19 = new TVSeries("The Wire", 2001, "2008", "Crime, Drama, Thriller", 9.3, true, 5, 60);
+        TVSeries show20 = new TVSeries("Welt Am Draht", 1973, "1973", "Crime, Mystery, Sci-fi", 7.9, true, 1, 2);
+        
+        TVSeries show21 = new TVSeries("House Of Cards", 2013, "2018", "Drama", 8.9, false, 6, 73);
+        TVSeries show22 = new TVSeries("Fargo", 2014, "present", "Crime, Drama, Thriller", 9.0, true, 3, 30);
+        TVSeries show23 = new TVSeries("Angel", 1999, "2004", "Action, Drama, Fantasy", 8.0, true, 5, 110);
+        TVSeries show24 = new TVSeries("V", 1984, "1985", "Action, Adventure, Sci-fi", 7.3, true, 1, 13);
+        TVSeries show25 = new TVSeries("Jessica Jones", 2015, "present", "Action, Crime, Drama", 8.1, true, 2, 26);
+        TVSeries show26 = new TVSeries("Daredevil", 2015, "present", "Action, Crime, Drama", 8.7, true, 3, 39);
+        TVSeries show27 = new TVSeries("Seinfeld", 1989, "1998", "Comedy", 8.9, false, 9, 180);
+        TVSeries show28 = new TVSeries("Slings And Arrows", 2003, "2006", "Comedy", 8.5, false, 3, 18);
+        TVSeries show29 = new TVSeries("I Claudius", 1976, "1976", "Biography, Drama, Comedy", 8.9, false, 1, 12);
+        TVSeries show30 = new TVSeries("Rome", 2005, "2007", "Action, Drama, History", 8.8, true, 2, 22);
+        
+        TVSeries show31 = new TVSeries("Ray Donovan", 2013, "present", "Crime, Drama", 8.3, true, 6, 72);
+        TVSeries show32 = new TVSeries("Better Call Saul", 2015, "present", "Crime, Drama", 8.7, true, 4, 40);
+        TVSeries show33 = new TVSeries("The Honeymooners", 1955, "1956", "Comedy, Family", 8.7, false, 1, 39);
+        TVSeries show34 = new TVSeries("Spaced", 1999, "2001", "Action, Comedy", 8.8, true, 2, 14);
+        TVSeries show35 = new TVSeries("The Twillight Zone", 1959, "1964", "Fantasy, Horror, Mystery", 9.0, true, 5, 156);
+        TVSeries show36 = new TVSeries("Fraiser", 1993, "2004", "Comedy", 8.1, false, 11, 264);
+        TVSeries show37 = new TVSeries("Alfred Hitchcock Presents", 1955, "1962", "Crime, Drama, Mystery", 8.6, true, 7, 267);
+        TVSeries show38 = new TVSeries("I Love Lucy", 1951, "1957", "Comedy, Family", 8.3, false, 6, 180);
+        TVSeries show39 = new TVSeries("24", 2001, "2010", "Action, Crime, Drama", 8.4, true, 8, 192);
+        TVSeries show40 = new TVSeries("The Americans", 2013, "2018", "Crime, Drama, Mystery", 8.4, true, 6, 75);
+        
+        TVSeries show41 = new TVSeries("Girls", 2012, "2017", "Comedy, Drama", 7.3, false, 6, 62);
+        TVSeries show42 = new TVSeries("Mad Men", 2007, "2015", "Drama", 8.6, false, 7, 92);
+        TVSeries show43 = new TVSeries("Northern Exposure", 1990, "1995", "Comedy, Drama, Fantasy", 8.3, false, 6, 110);
+        TVSeries show44 = new TVSeries("Star Trek", 1966, "1969", "Action, Adventure, Sci-fi", 8.3, true, 3, 59);
+        TVSeries show45 = new TVSeries("Big Little Lies", 2017, "2017", "Crime, Drama, Mystery", 8.6, true, 1, 7);
+        TVSeries show46 = new TVSeries("Firefly", 2002, "2003", "Adventure, Drama, Sci-fi", 9.0, false, 2, 14);
+        TVSeries show47 = new TVSeries("Spartacus", 2010, "2013", "Action, Adventure, Biography", 8.5, true, 3, 33);
+        TVSeries show48 = new TVSeries("Mr Show With Bob And David", 1995, "1998", "Comedy", 8.3, false, 7, 84);
+        TVSeries show49 = new TVSeries("Homeland", 2011, "present", "Crime, Drama, Mystery", 8.1, true, 1, 6);
+        TVSeries show50 = new TVSeries("Show Me A Hero", 2015, "2015", "Drama, History", 8.1, false, 1, 6);
+        
+        TVSeries show51 = new TVSeries("Crisis In Six Scenes", 2016, "2016", "Comedy", 6.6, false, 1, 6);
+        TVSeries show52 = new TVSeries("Batman", 1966, "1968", "Action, Adventure, Comedy",7.5, true, 3, 120);
+        TVSeries show53 = new TVSeries("Luke Cage", 2016, "2018", "Action, Crime, Drama", 7.5, true, 2, 26);
+        TVSeries show54 = new TVSeries("South Park", 1997, "present", "Animation, Comedy", 8.7, false, 22, 297);
+        TVSeries show55 = new TVSeries("Band Of Brothers", 2001, "2001", "Action, Drama, History", 9.5, true, 1, 10);
+        TVSeries show56 = new TVSeries("Married With Children", 1986, "1997", "Comedy", 8.1, false, 11, 259);
+        TVSeries show57 = new TVSeries("Family Ties", 1982, "1989", "Comedy, Family", 8, false, 1, 155);
+        TVSeries show58 = new TVSeries("Lonesome Dove", 1989, "1989", "Adventure, Drama, Western", 8.7, false, 1, 4);
+        TVSeries show59 = new TVSeries("Pride And Prejudice", 1995, "1995", "Drama, Romance", 8.9, false, 1, 6);
+        TVSeries show60 = new TVSeries("Flying Blind", 1992, "1993", "Comedy", 8.0, false, 1, 22);
+        
+        TVSeries show61 = new TVSeries("Battlestar Galactica", 2004, "2009", "Action, Adventure, Drama", 8.7, true, 4, 73);
+        TVSeries show62 = new TVSeries("Lucky Louie", 2006, "2007", "Comedy", 8.0, false, 1, 13);
+        TVSeries show63 = new TVSeries("Dekalog", 1989, "1990", "Drama", 9.1, false, 1, 10);
+        TVSeries show64 = new TVSeries("It's Garry Shandling's Show", 1986, "1990", "Comedy", 7.6, false, 4, 72);
+        TVSeries show65 = new TVSeries("On The Air", 1992, "1992", "Comedy", 7.4, false, 1, 7);
+        TVSeries show66 = new TVSeries("All In The Family", 1971, "1979", "Comedy, Drama", 7.4, false, 9, 205);
+        TVSeries show67 = new TVSeries("Entourage", 2004, "2011", "Comedy, Drama", 8.5, false, 8, 96);
+        TVSeries show68 = new TVSeries("Ally McBeal", 1997, "2002", "Comedy, Drama, Fantasy", 6.8, false, 5, 112);
+        TVSeries show69 = new TVSeries("The Strain", 2014, "2017", "Drama, Horror, Thriller",7.4, true, 4, 46);
+        TVSeries show70 = new TVSeries("The Man In The High Castle", 2015, "present", "Drama, Sci-fi, Thriller", 8.1, true, 3, 30);
+        
+        TVSeries show71 = new TVSeries("Sons Of Anarchy", 2008, "2014", "Crime, Drama, Thriller", 8.6, true, 7, 92);
+        TVSeries show72 = new TVSeries("The Punisher", 2017, "2017", "Action, Adventure, Crime", 8.6, true, 1, 13);
+        TVSeries show73 = new TVSeries("Boardwalk Empire", 2010, "2014", "Crime, Drama, History", 8.6, true, 5, 56);
+        TVSeries show74 = new TVSeries("Damages", 2007, "2012", "Crime, Drama, Mystery", 8.1, true, 5, 59);
+        TVSeries show75 = new TVSeries("Banshee", 2013, "2016", "Action, Crime, Drama", 8.4, true, 4, 38);
+        TVSeries show76 = new TVSeries("Planet Earth", 2006, "2006", "Documentary", 9.4, false, 1, 22);
+        TVSeries show77 = new TVSeries("Freaks And Geeks", 1999, "2000", "Comedy, Drama", 8.8, false, 1, 18);
+        TVSeries show78 = new TVSeries("The Way We Live Now", 2001, "2001", "Drama, Romance", 7.7, false, 1, 4);
+        TVSeries show79 = new TVSeries("Justified", 2010, "2015", "Action, Crime, Drama", 8.6, true, 6, 78);
+        TVSeries show80 = new TVSeries("Arrested Development", 2003, "present", "Comedy", 8.9, false, 5, 91);
+
+        TVSeries show81 = new TVSeries("Stranger Things", 2016, "present", "Drama, Fantasy, Horror", 8.9, true, 2, 17);
+        TVSeries show82 = new TVSeries("Night Court", 1984, "1992", "Comedy", 7.7, false, 9, 193);
+        TVSeries show83 = new TVSeries("Revenge", 2011, "2015", "Drama, Mystery, Thriller", 7.9, true, 4, 89);
+        TVSeries show84 = new TVSeries("Da Ali G Show", 2003, "2004", "Comedy", 8.0, false, 3, 18);
+        TVSeries show85 = new TVSeries("Sex & The City", 1998, "2004", "Comedy, Drama, Romance", 7.1, false, 6, 94);
+        TVSeries show86 = new TVSeries("Tyrant", 2014, "2016", "Action, Drama, Thriller", 7.8, true, 3, 32);
+        TVSeries show87 = new TVSeries("Billions", 2016, "present", "Action, Drama, Romance", 8.4, true, 3, 36);
+        TVSeries show88 = new TVSeries("Shameless", 2011, "present", "Comedy, Drama", 8.7, false, 9, 103);
+        TVSeries show89 = new TVSeries("Smallville", 2001, "2011", "Adventure, Drama, Romance", 7.5, false, 10, 217);
+        TVSeries show90 = new TVSeries("The Defenders", 2017, "2017", "Action, Adventure, Crime", 8.8, true, 1, 8);
+      
+        TVSeries show91 = new TVSeries("House", 2004, "2012", "Drama, Mystery", 8.8, false, 8, 102);
+        TVSeries show92 = new TVSeries("Fear The Walking Dead", 2015, "present", "Drama, Horror, Sci-fi", 7.0, true, 4, 53);
+        TVSeries show93 = new TVSeries("True Blood", 2008, "2012", "Drama, Fantasy, Mystery", 7.9, false, 7, 80);
+        TVSeries show94 = new TVSeries("GLOW", 2017, "present", "Comedy, Drama, Sport", 8.2, false, 2, 20);
+        TVSeries show95 = new TVSeries("Doctor Thorne", 2016, "2016", "Drama", 7.3, false, 1, 3);
+        TVSeries show96 = new TVSeries("The Civil War", 1990, "1990", "Documentary, History, War", 9.1, true, 1, 9);
+        TVSeries show97 = new TVSeries("Person Of Interest", 2011, "2016", "Action, Crime, Drama", 8.4, true, 5, 63);
+        TVSeries show98 = new TVSeries("Californication", 2007, "2014", "Comedy, Drama", 8.3, false, 7, 84);
+        TVSeries show99 = new TVSeries("Three's Company", 1976, "1984", "Comedy", 7.6, false, 8, 172);
+        TVSeries show100 = new TVSeries("Dexter", 2006, "2013", "Crime, Drama, Mystery", 8.7, true, 8, 96);
+        
+        display.addTVSeries(show1);
+        display.addTVSeries(show2);
+        display.addTVSeries(show3);
+        display.addTVSeries(show4);
+        display.addTVSeries(show5);
+        display.addTVSeries(show6);
+        display.addTVSeries(show7);
+        display.addTVSeries(show8);
+        display.addTVSeries(show9);
+        display.addTVSeries(show10);
+        
+        display.addTVSeries(show11);
+        display.addTVSeries(show12);
+        display.addTVSeries(show13);
+        display.addTVSeries(show14);
+        display.addTVSeries(show15);
+        display.addTVSeries(show16);
+        display.addTVSeries(show17);
+        display.addTVSeries(show18);
+        display.addTVSeries(show19);
+        display.addTVSeries(show20);
+        
+        display.addTVSeries(show21);
+        display.addTVSeries(show22);
+        display.addTVSeries(show23);
+        display.addTVSeries(show24);
+        display.addTVSeries(show25);
+        display.addTVSeries(show26);
+        display.addTVSeries(show27);
+        display.addTVSeries(show28);
+        display.addTVSeries(show29);
+        display.addTVSeries(show30);
+        
+        display.addTVSeries(show31);
+        display.addTVSeries(show32);
+        display.addTVSeries(show33);
+        display.addTVSeries(show34);
+        display.addTVSeries(show35);
+        display.addTVSeries(show36);
+        display.addTVSeries(show37);
+        display.addTVSeries(show38);
+        display.addTVSeries(show39);
+        display.addTVSeries(show40);
+        
+        display.addTVSeries(show41);
+        display.addTVSeries(show42);
+        display.addTVSeries(show43);
+        display.addTVSeries(show44);
+        display.addTVSeries(show45);
+        display.addTVSeries(show46);
+        display.addTVSeries(show47);
+        display.addTVSeries(show48);
+        display.addTVSeries(show49);
+        display.addTVSeries(show50);
+        
+        display.addTVSeries(show51);
+        display.addTVSeries(show52);
+        display.addTVSeries(show53);
+        display.addTVSeries(show54);
+        display.addTVSeries(show55);
+        display.addTVSeries(show56);
+        display.addTVSeries(show57);
+        display.addTVSeries(show58);
+        display.addTVSeries(show59);
+        display.addTVSeries(show60);
+        
+        display.addTVSeries(show61);
+        display.addTVSeries(show62);
+        display.addTVSeries(show63);
+        display.addTVSeries(show64);
+        display.addTVSeries(show65);
+        display.addTVSeries(show66);
+        display.addTVSeries(show67);
+        display.addTVSeries(show68);
+        display.addTVSeries(show69);
+        display.addTVSeries(show70);
+        
+        display.addTVSeries(show71);
+        display.addTVSeries(show72);
+        display.addTVSeries(show73);
+        display.addTVSeries(show74);
+        display.addTVSeries(show75);
+        display.addTVSeries(show76);
+        display.addTVSeries(show77);
+        display.addTVSeries(show78);
+        display.addTVSeries(show79);
+        display.addTVSeries(show80);
+        
+        display.addTVSeries(show81);
+        display.addTVSeries(show82);
+        display.addTVSeries(show83);
+        display.addTVSeries(show84);
+        display.addTVSeries(show85);
+        display.addTVSeries(show86);
+        display.addTVSeries(show87);
+        display.addTVSeries(show88);
+        display.addTVSeries(show89);
+        display.addTVSeries(show90);
+        
+        display.addTVSeries(show91);
+        display.addTVSeries(show92);
+        display.addTVSeries(show93);
+        display.addTVSeries(show94);
+        display.addTVSeries(show95);
+        display.addTVSeries(show96);
+        display.addTVSeries(show97);
+        display.addTVSeries(show98);
+        display.addTVSeries(show99);
+        display.addTVSeries(show100);
+    }
+}
