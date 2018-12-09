@@ -2,7 +2,7 @@ import java.util.*;
 
 public class TVSeriesCaller{
     public static void main(String[] args){
-        TVSeriesCallerStorage display = new TVSeriesCallerStorage();
+        TVSeriesCallerInitializer display = new TVSeriesCallerInitializer();
         
         TVSeries show1 = new TVSeries("Twin Peaks", 1990, "1991", "Crime, Drama, Mystery", 8.8, true, 2, 30);
         TVSeries show2 = new TVSeries("The Sopranos", 1999, "2007", "Crime, Drama", 9.2, true, 6, 86);
@@ -224,5 +224,14 @@ public class TVSeriesCaller{
         display.addTVSeries(show98);
         display.addTVSeries(show99);
         display.addTVSeries(show100);
+        
+        display.show();
     }
+    //public int getSeasons(){
+     //   for(int n = 0; n < display.length; n++){
+       //     
+       // }
+    //}
+    //public static void Antal(String[] args){
+    //}
 }
