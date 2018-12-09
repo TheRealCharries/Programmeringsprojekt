@@ -1,0 +1,15 @@
+import java.util.*;
+
+public class TVSeriesCallerInitializer{
+    private List<TVSeries> display = new ArrayList<>();
+    
+    public void addTVSeries(TVSeries q){
+        display.add(q);
+    }
+    public void show(){
+        int num = 0;
+        for(TVSeries tvseries : display){
+            System.out.println(tvseries.toString());
+        }
+    }
+}
