@@ -1,0 +1,16 @@
+import java.util.*;
+
+public class MovieCallerStorage
+{
+    private ArrayList<Movie1> movies;
+
+    public MovieCallerStorage()
+    {
+        movies = new ArrayList<Movie1>();
+    }
+
+    public void addMovie(Movie movie)
+    {
+        movies.add(movie);
+    }
+}
