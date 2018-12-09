@@ -1,0 +1,11 @@
+import java.util.*;
+
+public class MovieCaller
+{
+    public static void main(string[] args)
+    {
+        MovieCallerStorage display = new MovieCallerStorage();
+        
+        Movie movie1 = new Movie("The Godfather", 1972, "Crime, Drama", 9.2, ); //lav metode til selv at finde ud af om r-rated
+    }
+}
