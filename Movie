@@ -1,66 +1,33 @@
-public class Movie
+public class Movie1
 {
-    /*FileInputStream fis = new FileInputStream("someFile") ;
-    ArrayList allMovies = fis.stream();
-    .split("\n")
-    .map((ms) => new Movie(ms.split(";")))
-    .collect(Collectors.toList());*/
-    //Skal ind i denne klasse? Hvor?
-    
-    
-    final String name;
-    final long year;
-    final String genre[];
-    double rating;    
+    private String name;
+    private int year;
+    private String genre;
+    private double rating;
+    private boolean isRrated;
 
-    public Movie(String ... args) //uendelige antal argumenter
+    public Movie1(String name, int year, String genre, double rating, boolean isRrated)
     {
-        FileInputStream fis = new FileInputStream("someFile") ;
-        ArrayList allMovies = fis.stream();
-        
-        //exception, movies == null
-        name = args[0];
-        year = Integer.parseInt(args[1]);
-        genre = args[2].split(",");
-        rating = double.parseInt(args[3]); //double+int? Lave string til int/double - hvorfor?? Pga komma måske?
+        this.name = name;
+        this.year = year;
+        this.genre = genre;
+        this.rating = rating;
+        this.isRrated = isRrated;
     }
-    
-    public String getName()
-    {
+
+    public String getName(){
         return name;
     }
-    
-    public String getGenre()
-    {
+    public String getGenre(){
         return genre;
     }
-    
-    public int getYear()
-    {
+    public int getYear(){
         return year;
     }
-    
-    public Image getImage() //Mangler der noget? Hvordan ved hvilken film?
-    {
-        return Image.load("movies/" + this.name);
-    }
-    
-    public double getRating()
-    {
+    public double getRating(){
         return rating;
     }
-    
-    public boolean isRrated()
-    {   
-        //hvordan finder man ud af om r-rated?
-        crime, war, thriller, action, horror
-
+    public boolean isRrated(){
+        return isRrated;
     }
-    
-    public void addMovie()
-    {
-        //Hvad skal den add'e til?
-    }
-    
-    
 }
