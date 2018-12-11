@@ -1,19 +1,11 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.JMenu;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import javax.swing.*;
-import java.awt.BorderLayout;
-import java.awt.Color;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.awt.Dimension;
+
+
 
 public class GUI extends JFrame{
     JPanel panel;
@@ -21,7 +13,6 @@ public class GUI extends JFrame{
     JMenu filmMenu, TvSerierMenu, userMenu;
     JMenuItem item1,item2, item3, item4, subitem1, subitem2, subitem3, subitem4, subitem5, subitem6, subitem7, subitem8, subitem9, subitem10, subitem11, subitem12, subitem13, subitem14,
     subitem15, subitem16, subitem17, subitem18, subitem19, subitem20, useritem1, useritem2;
-    
     
     public GUI(){
         JFrame frame = new JFrame();
@@ -153,33 +144,32 @@ public class GUI extends JFrame{
 }
 
 class UserFrame implements MouseListener {
-            public void mouseClicked(MouseEvent e){   
+    public void mouseClicked(MouseEvent e){   
             }
-            public void mouseEntered(MouseEvent e){
+    public void mouseEntered(MouseEvent e){
                 }
-            public void mouseExited(MouseEvent e){
+    public void mouseExited(MouseEvent e){
                 }
-            public void mousePressed(MouseEvent e){
+    public void mousePressed(MouseEvent e){
                 userFrame();
                 }
             
-            public void mouseReleased(MouseEvent e){
+    public void mouseReleased(MouseEvent e){
                 }
             
-            public void userFrame(){
-                JFrame userFrame = new JFrame();
-                JLabel maintext = new JLabel("Min profil");
-                maintext.setFont(new Font(maintext.getFont().getName(), maintext.getFont().getStyle(), 20));
-                maintext.setVerticalAlignment(JLabel.NORTH);
-                JTextField infoText = new JTextField();
-                userFrame.add(maintext);
-                userFrame.setSize(500,400);
-                userFrame.setLocationRelativeTo(null);
-                userFrame.getContentPane().setBackground(new Color(166,166,166));    
-                userFrame.setVisible(true);    
-                
-                
-                
+    public static void userFrame(){
+        JFrame userFrame = new JFrame();
+        JLabel maintext = new JLabel("Min profil");
+        
+        maintext.setFont(new Font(maintext.getFont().getName(), maintext.getFont().getStyle(), 20));
+        maintext.setVerticalAlignment(JLabel.NORTH);
+        JTextField infoText = new JTextField();
+        userFrame.add(maintext);
+        userFrame.setSize(500,400);
+        userFrame.setLocationRelativeTo(null);
+        userFrame.getContentPane().setBackground(new Color(166,166,166));    
+        userFrame.setVisible(true);    
+
                 
             }
             
@@ -189,9 +179,9 @@ class UserFrame implements MouseListener {
 
 
 class ii implements MouseListener{
-            public void mouseClicked(MouseEvent e){   
+    public void mouseClicked(MouseEvent e){   
             }
-            public void mouseEntered(MouseEvent e){
+    public void mouseEntered(MouseEvent e){
                 }
             public void mouseExited(MouseEvent e){
                 }
@@ -202,18 +192,55 @@ class ii implements MouseListener{
             public void mouseReleased(MouseEvent e){
                 }
             
-            public void changeUserFrame(){
-                JFrame userFrame = new JFrame();
-                JButton userText = new JButton(HandlingUser.users.toString());
-                userFrame.add(userText);
+            public void changeUserFrame(){                
+                JFrame userFrame = new JFrame("Vælg bruger");
+                JButton[] buttons = new JButton[HandlingUser.users.size()];
+                
+                for(int i = 0; i < HandlingUser.users.size(); i++){
+                    buttons[i] = new JButton(HandlingUser.users.get(i).toString1());
+                    userFrame.setLayout(new GridLayout(0,1));    
+                    userFrame.add(buttons[i]);
+                    
+                    }
+                
+                for(int i = 0; i < HandlingUser.users.size(); i++){
+                    buttons[i].addActionListener(new ActionListener() {
+                        public void actionPerformed(ActionEvent e) {
+                            UserFrame.userFrame();
+                }
+            });
+        } 
+
                 userFrame.setSize(500,400);
                 userFrame.setLocationRelativeTo(null);
                 userFrame.getContentPane().setBackground(new Color(166,166,166));    
                 userFrame.setVisible(true);    
+
+            }
+      
+
+        }
+        
+        
+class ji implements MouseListener{
+    public void mouseClicked(MouseEvent e){   
+            }
+    public void mouseEntered(MouseEvent e){
+                }
+            public void mouseExited(MouseEvent e){
+                }
+            public void mousePressed(MouseEvent e){
                 
+                }
                 
+            public void mouseReleased(MouseEvent e){
+                }
+            
+            public void dramAf(){                
                 
                 
                 
             }
-}
+      
+
+        }
