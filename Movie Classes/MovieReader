@@ -5,9 +5,9 @@ public class MovieReader
 {
     private String fileName;
 
-    public MovieReader(String fileName)
+    public MovieReader()
     {
-        this.fileName = fileName;
+        this.fileName = "mText.txt";
     }
 
     public List<Movie> read() throws IOException
@@ -28,8 +28,11 @@ public class MovieReader
                 String[] splitInfo = line.split(";");
                 String title = splitInfo[0].trim();
                 int year = Integer.parseInt(splitInfo[1].trim());
-                String genre = splitInfo[2].trim();
-                double rating = Double.parseDouble(splitInfo[3].trim());
+                String[] genre = splitInfo[2].split(",");
+                for(String g : genre){
+                    g.trim();
+                }
+                double rating = Double.parseDouble(splitInfo[3].trim().replace(",","."));
                 
                 Movie m = new Movie(title, year, genre, rating);
                 movies.add(m);
@@ -38,5 +41,7 @@ public class MovieReader
             return null;
         }
         return movies;
+    }
+}
     }
 }
