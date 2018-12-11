@@ -1,25 +1,27 @@
+import java.util.*;
+
 public class Movie
 {
     private String title;
     private int year;
-    private String genre;
+    private String[] genre;
     private double rating;
+    private String[] rRatedGenres;
 
-    public Movie(String title, int year, String genre, double rating)
+    public Movie(String title, int year, String[] genre, double rating)
     {
         this.title = title;
         this.year = year;
         this.genre = genre;
         this.rating = rating;
+        String[] rRatedGenres = new String[]{"Crime", "War", "Thriller", "Action", "Horror"};
     }
 
     public String getTitle(){
         return title;
     }
     
-    public String getGenre(){
-        //Split genrene op.
-        //Tilføj til genre-Arrayliste
+    public String[] getGenre(){
         return genre;
     }
     
@@ -32,9 +34,10 @@ public class Movie
     }
     
     public boolean isRrated(){
-        //Brug getGenre().
-        //Sammenlign med de r-rated genre.
-        //Return true, hvis der er et match.
-        return false;
+        if(genre == rRatedGenres){
+            return true;
+        } else {
+            return false;
+        }
     }
 }
