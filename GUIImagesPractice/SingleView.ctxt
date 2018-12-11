@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=SingleView
+comment1.params=actionListener
+comment1.target=void\ addActionListener(java.awt.event.ActionListener)
+comment2.params=
+comment2.target=void\ addImagePanel()
+comment3.params=
+comment3.target=void\ addButtons()
+comment4.params=ic
+comment4.target=void\ showImage(ImageComponent)
+comment5.params=
+comment5.target=void\ makePanel()
+numComments=6

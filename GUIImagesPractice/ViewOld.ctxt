@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=ViewOld
+comment1.params=controller
+comment1.target=void\ addController(Controller)
+comment2.params=o\ arg
+comment2.target=void\ update(java.util.Observable,\ java.lang.Object)
+comment3.params=
+comment3.target=void\ addImagePanel()
+comment4.params=
+comment4.target=void\ addButtons()
+comment5.params=
+comment5.target=void\ makeFrame()
+numComments=6
