@@ -7,7 +7,7 @@ public class Main {
         try{
             List<Movie> movies = mr.read();
             for(Movie m : movies){
-                m.print();
+                System.out.println(p);
             } 
                 
         }catch(IOException e) {
