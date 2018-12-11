@@ -1,16 +1,18 @@
 
+
 public class GuiDemo
 {
     public static void main(String args[]){
         HandlingUser hu = new HandlingUser();
-        User user = new User("Charlotte",20);
-        User user1 = new User("Frederik",10);
-        User user2 = new User("Michella",13);
+        User user = new User("Charlotte",20, "Hej");
+        User user1 = new User("Frederik",10, "Med");
+        User user2 = new User("Michella",13, "Dig");
+        UserFrame uf = new UserFrame();
+        hu.toString();
         hu.AddNewUser(user);
         hu.AddNewUser(user1);
         hu.AddNewUser(user2);
         GUI gui = new GUI();
-        
         
     }
 }
