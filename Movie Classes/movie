@@ -37,8 +37,4 @@ public class Movie
         //Return true, hvis der er et match.
         return false;
     }
-    
-    public void print(){
-        System.out.println("WUHU!");
-    }
 }
