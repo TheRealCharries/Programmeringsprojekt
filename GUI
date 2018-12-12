@@ -8,7 +8,7 @@ import java.awt.Dimension;
 
 
 public class GUI extends JFrame{
-    JPanel panel;
+    JPanel panel, panel2;
     JMenuBar menubar;
     JMenu filmMenu, TvSerierMenu, userMenu;
     JMenuItem item1,item2, item3, item4, subitem1, subitem2, subitem3, subitem4, subitem5, subitem6, subitem7, subitem8, subitem9, subitem10, subitem11, subitem12, subitem13, subitem14,
@@ -16,6 +16,7 @@ public class GUI extends JFrame{
     
     public GUI(){
         JFrame frame = new JFrame();
+        panel2 = new JPanel(new BorderLayout(2,2));
         panel = new JPanel(new BorderLayout(2,2));
         menubar = new JMenuBar();
     
@@ -105,10 +106,11 @@ public class GUI extends JFrame{
         menubar.add(TvSeriesMenu, BorderLayout.CENTER);
         menubar.add(user(), BorderLayout.LINE_END);
         menubar.setPreferredSize(new Dimension(500, 50));
-    
+        panel2.setLayout(new BorderLayout());
         panel.setLayout(new BorderLayout());
-        panel.add(menubar, BorderLayout.SOUTH);
         panel.setPreferredSize(new Dimension(20,20));
+        panel.setPreferredSize(new Dimension(20,20));
+        frame.add(panel2);
         frame.add(panel,BorderLayout.NORTH);
         frame.setJMenuBar(menubar);
         frame.setSize(1000,800);
@@ -155,10 +157,8 @@ public class GUI extends JFrame{
                         getContentPane().add(nbPanel);        
                         nbPanel.setLayout(null); 
                         setVisible(true);
-
                         opret.addActionListener(new ActionListener(){
                             public void actionPerformed(ActionEvent e) {
-
                                 try{  
                                     final int userage = Integer.parseInt(userAlder.getText());
                                     final String username = userNavn.getText();
@@ -204,14 +204,14 @@ class UserFrame implements MouseListener {
     public static void userFrame(){
         JFrame userFrame = new JFrame();
         JLabel maintext = new JLabel("Min profil");
-        
-        maintext.setFont(new Font(maintext.getFont().getName(), maintext.getFont().getStyle(), 20));
-        maintext.setVerticalAlignment(JLabel.NORTH);
+        JPanel panel3 = new JPanel(new BorderLayout(2,2));
+        maintext.setBounds(20,20,100,70);
         JTextField infoText = new JTextField();
+        panel3.setLayout(new BorderLayout());
+        userFrame.add(panel3);
         userFrame.add(maintext);
         userFrame.setSize(500,400);
-        userFrame.setLocationRelativeTo(null);
-        userFrame.getContentPane().setBackground(new Color(166,166,166));    
+        userFrame.setLocationRelativeTo(null);  
         userFrame.setVisible(true);    
 
                 
