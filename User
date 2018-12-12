@@ -1,8 +1,8 @@
 import java.util.*;
 public class User
 {
-    protected String name;
-    protected int age;
+    public final String name;
+    public int age;
     protected boolean child;
     
     public User(String name, int age)
@@ -12,27 +12,28 @@ public class User
         child = false;
         //users.add(this);
     }
-
     public String getName(){
         return name;
-    }
-    
+    } 
     public int getAge(){
         return age;
     }
-    
     public boolean SetAllowance(){
         return 13 <= age ;
-    } 
-   
+    }    
     public String toString(){
         if(!SetAllowance()) {
-            return name + " " + age + " år" + " Barn";}
+            return  "Navn: " + name + ", alder: " + age + " år, Barn";}
         else{ 
-            return name + " " + age + " år" + " Voksen";
+            return "Navn: " + name + ", alder " + age + " år," + " Voksen";
         }
     }
-    
-    //static ArrayList<User> users = new ArrayList<>();
-    
+    public String toString1(){
+        if(!SetAllowance()) {
+            return "Bruger: " + name + "         " + "Alder: "  + age + "            - Begrænset adgang";}
+        else{
+            return "Bruger: " + name + "         " + "Alder: "  + age + "            - Fuld adgang";
+           
+        }
+    }
 }
