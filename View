@@ -1,0 +1,195 @@
+import java.util.*;
+import java.awt.*;
+import javax.swing.*;
+import java.io.*;
+import java.awt.image.*;
+import javax.imageio.ImageIO;
+import java.nio.file.*;
+import java.awt.event.ActionListener;
+import java.util.List;
+import java.awt.event.*;
+import javax.swing.*;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.awt.Dimension;
+import java.util.ArrayList;
+
+public class View extends JFrame implements Observer{
+    private JPanel imagePanel, buttonPanel;
+    private JPanel panel;
+    private SingleView singleView;
+    private ActionListener actionListener;
+    private GridView gridView;
+    private JScrollPane scrollPane;
+
+    JMenuBar menubar;
+    JMenu filmMenu, TvSerierMenu, userMenu;
+    JMenuItem item1,item2, item3, item4, subitem1, subitem2, subitem3, subitem4, subitem5, subitem6,
+    subitem7, subitem8, subitem9, subitem10, subitem11, subitem12, subitem13, subitem14,
+    subitem15, subitem16, subitem17, subitem18, subitem19, subitem20, useritem1, useritem2;
+    private Path imagesPath = FileSystems.getDefault().getPath("C:/Users/fthom/Desktop/ImagesToJava/serieforsider/Serier - billeder");
+    
+    
+    public View(){
+        this.singleView = new SingleView();
+        GridView gridView = new GridView();
+        
+        JFrame frame = new JFrame();
+        panel = new JPanel(new BorderLayout(2,2));
+        menubar = new JMenuBar();
+        
+    
+        JMenu FilmMenu, submenu1, submenu2;
+        item1 = new JMenuItem("          A-Z           ");
+        item2 = new JMenuItem("          Årstal        ");
+        item3 = new JMenuItem("          A-Z           ");
+        item4 = new JMenuItem("          Årstal        ");
+
+        JMenu filmMenu= new JMenu("            Film             ");
+        filmMenu.add(item1);
+        filmMenu.add(item2);
+
+ 
+        filmMenu.addSeparator();
+        submenu1 = new JMenu("          Genre     ");
+        subitem1 = new JMenuItem("   Action   ");
+        submenu1.add(subitem1);
+    
+        subitem2 = new JMenuItem("   Drama   ");
+        submenu1.add(subitem2);
+    
+        subitem3 = new JMenuItem("   Familie Film   ");
+        filmMenu.add(submenu1);
+        submenu1.add(subitem3);
+    
+        subitem4 = new JMenuItem("   Gysere   ");
+        submenu1.add(subitem4);
+    
+        subitem5 = new JMenuItem("   Familie Film   ");
+        submenu1.add(subitem5);
+    
+        subitem6 = new JMenuItem("   Komedie   ");
+        submenu1.add(subitem6);
+    
+        subitem7 = new JMenuItem("   Krimi   ");
+        submenu1.add(subitem7);
+    
+        subitem8 = new JMenuItem("   Romantik   ");
+        submenu1.add(subitem8);
+
+        subitem9 = new JMenuItem("   Sci-fi og fantasy   ");
+        submenu1.add(subitem9);
+    
+        subitem10 = new JMenuItem("   Thriller   ");
+        submenu1.add(subitem10);
+    
+        JMenu TvSeriesMenu = new JMenu("       Tv serier         ");
+        TvSeriesMenu.add(item3);
+        TvSeriesMenu.add(item4);
+        
+        TvSeriesMenu.addSeparator();
+        submenu2 = new JMenu("          Genre     ");
+        subitem11 = new JMenuItem("   Action   ");
+        submenu2.add(subitem11);
+    
+        subitem12 = new JMenuItem("   Drama   ");
+        submenu2.add(subitem12);
+    
+        subitem13 = new JMenuItem("   Familie Film   ");;
+        submenu2.add(subitem13);
+    
+        subitem14 = new JMenuItem("   Gysere   ");
+        submenu2.add(subitem14);
+    
+        subitem15 = new JMenuItem("   Familie Film   ");
+        submenu2.add(subitem15);
+    
+        subitem16 = new JMenuItem("   Komedie   ");
+        submenu2.add(subitem16);
+    
+        subitem17 = new JMenuItem("   Krimi   ");
+        submenu2.add(subitem17);
+    
+        subitem18 = new JMenuItem("   Romantik   ");
+        submenu2.add(subitem18);
+    
+        subitem19 = new JMenuItem("   Sci-fi og fantasy   ");
+        submenu2.add(subitem19);
+    
+        subitem20 = new JMenuItem("   Thriller   ");
+        submenu2.add(subitem20);
+        TvSeriesMenu.add(submenu2);
+    
+        menubar.setLayout(new BorderLayout());
+        menubar.add(filmMenu, BorderLayout.LINE_START);
+        menubar.add(TvSeriesMenu, BorderLayout.CENTER);
+        menubar.add(user(), BorderLayout.LINE_END);
+        menubar.setPreferredSize(new Dimension(500, 50));
+        
+        gridView.setLayout(new BorderLayout());
+        gridView.setSize(500, 420);
+        gridView.setBackground(new Color(26,25,150));
+        gridView.addImagePanel();
+        gridView.makePanel();
+        add(gridView, BorderLayout.CENTER);
+    
+        panel.setLayout(new BorderLayout());
+        panel.add(menubar, BorderLayout.SOUTH);
+        panel.setPreferredSize(new Dimension(20,20));
+        frame.add(panel,BorderLayout.NORTH);
+        frame.setJMenuBar(menubar);
+        frame.setSize(1000,800);
+        frame.getContentPane().setBackground(new Color(26,25,25));
+        frame.getContentPane().add(menubar,BorderLayout.NORTH);
+        frame.getContentPane().add(gridView, BorderLayout.CENTER);
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+    }
+    
+    public JMenu menu(String name, String...items){
+        JMenu mymenu= new JMenu(name);
+        for(String x: items){
+            mymenu.add(new JMenuItem(x));
+        }
+        return mymenu;
+    }
+    
+    public JMenu user(){
+        final String items[] = new String[]{"       Se Profil      ", "       Skift bruger      "};
+        JMenu userMenu = menu("               User               ",items);
+        //Explicit casting (JMenuItem)
+        JMenuItem profil = (JMenuItem)userMenu.getItem(0);
+        profil.addMouseListener(new UserFrame());
+        JMenuItem skiftbruger = (JMenuItem)userMenu.getItem(1);
+        skiftbruger.addMouseListener(new ii());
+        return userMenu;
+    }
+    
+    public void addController(ActionListener actionListener){
+        this.actionListener = actionListener;
+        singleView.addActionListener(actionListener);
+    }
+    
+    public void update(Observable o, Object arg){
+        if(arg instanceof ImageComponent){
+            singleView.showImage((ImageComponent)arg);
+        } else {
+            List<ImageComponent> list = (List<ImageComponent>) arg;
+            gridView.showImages(list);
+        }
+    }
+    
+    public void makeFrame(){
+        setSize(500, 420);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setTitle("ImageViewer");
+        
+        //singleView.makePanel();
+        //add(singleView, BorderLayout.CENTER);
+        
+        
+        
+        
+        setVisible(true);
+    }        
+}
