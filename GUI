@@ -121,16 +121,46 @@ public class GUI extends JFrame{
     
     
     public JMenu user(){
-        final String items[] = new String[]{"       Se Profil      ", "       Skift bruger      "};
+        final String items[] = new String[]{"       Tilføj ny bruger     ","       Se Profil      ", "       Skift bruger      "};
         JMenu userMenu = menu("               User               ",items);
         //Explicit casting (JMenuItem)
-        JMenuItem profil = (JMenuItem)userMenu.getItem(0);
+        JMenuItem profil = (JMenuItem)userMenu.getItem(1);
         profil.addMouseListener(new UserFrame());
-        JMenuItem skiftbruger = (JMenuItem)userMenu.getItem(1);
+        JMenuItem skiftbruger = (JMenuItem)userMenu.getItem(2);
         skiftbruger.addMouseListener(new ii());
-        return userMenu;
-    }
-    
+        JMenuItem tilføjNyBruger = (JMenuItem)userMenu.getItem(0);
+        tilføjNyBruger.addActionListener(new ActionListener(){ 
+         public void actionPerformed(ActionEvent e) {
+                        JButton opret= new JButton("Opret");
+                        JPanel nbPanel = new JPanel();
+                        JLabel textOverskrift = new JLabel("Ny bruger");
+                        JLabel textAlder = new JLabel("Alder:");
+                        JLabel textNavn = new JLabel("Navn:");
+                        JTextField userNavn = new JTextField("Indtast navn", 15);
+                        JTextField userAlder = new JTextField("Indtast alder",15);
+                        opret.setBounds(110,120,80,20);
+                        userNavn.setBounds(70,50,150,20);
+                        userAlder.setBounds(70,85,150,20);
+                        textNavn.setBounds(20,48,80,20);
+                        textAlder.setBounds(20,83,80,20);
+                        textOverskrift.setBounds(20,20,80,20);
+                        nbPanel.add(textOverskrift);
+                        nbPanel.add(textNavn);
+                        nbPanel.add(textAlder);
+                        nbPanel.add(opret);
+                        nbPanel.add(userNavn);
+                        nbPanel.add(userAlder);
+                        setSize(300,200);
+                        setLocation(800,450);
+                        getContentPane().add(nbPanel);
+                        nbPanel.setLayout(null); 
+                        setVisible(true);
+                    
+                    }
+                });
+                return userMenu;
+            }
+        
     public JMenu menu(String name, String...items){
         JMenu mymenu= new JMenu(name);
         for(String x: items){
@@ -216,30 +246,6 @@ class ii implements MouseListener{
                 userFrame.getContentPane().setBackground(new Color(166,166,166));    
                 userFrame.setVisible(true);    
 
-            }
-      
-
-        }
-        
-        
-class ji implements MouseListener{
-    public void mouseClicked(MouseEvent e){   
-            }
-    public void mouseEntered(MouseEvent e){
-                }
-            public void mouseExited(MouseEvent e){
-                }
-            public void mousePressed(MouseEvent e){
-                
-                }
-                
-            public void mouseReleased(MouseEvent e){
-                }
-            
-            public void dramAf(){                
-                
-                
-                
             }
       
 
