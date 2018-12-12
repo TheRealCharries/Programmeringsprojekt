@@ -152,10 +152,24 @@ public class GUI extends JFrame{
                         nbPanel.add(userAlder);
                         setSize(300,200);
                         setLocation(800,450);
-                        getContentPane().add(nbPanel);
+                        getContentPane().add(nbPanel);        
                         nbPanel.setLayout(null); 
                         setVisible(true);
-                    
+
+                        opret.addActionListener(new ActionListener(){
+                            public void actionPerformed(ActionEvent e) {
+
+                                try{  
+                                    final int userage = Integer.parseInt(userAlder.getText());
+                                    final String username = userNavn.getText();
+                                    HandlingUser.AddNewUser(new User(username,userage));
+                                    setVisible(false);   
+                                } catch(NumberFormatException ex){
+                                    JOptionPane.showMessageDialog(nbPanel,
+                                    "Alder skal være et tal");
+                                }                      
+                            }
+                        });
                     }
                 });
                 return userMenu;
@@ -237,9 +251,10 @@ class ii implements MouseListener{
                     buttons[i].addActionListener(new ActionListener() {
                         public void actionPerformed(ActionEvent e) {
                             UserFrame.userFrame();
-                }
-            });
-        } 
+                            userFrame.setVisible(false);
+                        }
+                    });
+               } 
 
                 userFrame.setSize(500,400);
                 userFrame.setLocationRelativeTo(null);
