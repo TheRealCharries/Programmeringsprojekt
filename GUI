@@ -5,16 +5,16 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.awt.Dimension;
 public class GUI extends JFrame{
-    JPanel panel, panel1;
+    JPanel panel, panel2;
     JMenuBar menubar;
     JMenu filmMenu, TvSerierMenu, userMenu;
     JMenuItem item1,item2, item3, item4, subitem1, subitem2, subitem3, subitem4, subitem5, subitem6, subitem7, subitem8, subitem9, subitem10, subitem11, subitem12, subitem13, subitem14,
-    subitem15, subitem16, subitem17, subitem18, subitem19, subitem20, useritem1, useritem2;
+    subitem15, subitem16, subitem17, subitem18, subitem19, subitem20, useritem1, useritem2;    
     public GUI(){
         JFrame frame = new JFrame();
+        panel2 = new JPanel(new BorderLayout(2,2));
         panel = new JPanel(new BorderLayout(2,2));
-        panel1 = new JPanel();
-        menubar = new JMenuBar();
+        menubar = new JMenuBar();    
         JMenu FilmMenu, submenu1, submenu2;
         item1 = new JMenuItem("          A-Z           ");
         item2 = new JMenuItem("          Årstal        ");
@@ -33,62 +33,63 @@ public class GUI extends JFrame{
         filmMenu.add(submenu1);
         submenu1.add(subitem3);
         subitem4 = new JMenuItem("   Gysere   ");
-        submenu1.add(subitem4); 
+        submenu1.add(subitem4);    
         subitem5 = new JMenuItem("   Familie Film   ");
-        submenu1.add(subitem5);
+        submenu1.add(subitem5);    
         subitem6 = new JMenuItem("   Komedie   ");
-        submenu1.add(subitem6);  
+        submenu1.add(subitem6);    
         subitem7 = new JMenuItem("   Krimi   ");
-        submenu1.add(subitem7);  
+        submenu1.add(subitem7);    
         subitem8 = new JMenuItem("   Romantik   ");
         submenu1.add(subitem8);
         subitem9 = new JMenuItem("   Sci-fi og fantasy   ");
-        submenu1.add(subitem9);  
+        submenu1.add(subitem9);    
         subitem10 = new JMenuItem("   Thriller   ");
-        submenu1.add(subitem10);   
+        submenu1.add(subitem10);    
         JMenu TvSeriesMenu = new JMenu("       Tv serier         ");
         TvSeriesMenu.add(item3);
-        TvSeriesMenu.add(item4);        
+        TvSeriesMenu.add(item4);       
         TvSeriesMenu.addSeparator();
         submenu2 = new JMenu("          Genre     ");
         subitem11 = new JMenuItem("   Action   ");
         submenu2.add(subitem11);   
         subitem12 = new JMenuItem("   Drama   ");
-        submenu2.add(subitem12);    
+        submenu2.add(subitem12);  
         subitem13 = new JMenuItem("   Familie Film   ");;
-        submenu2.add(subitem13);   
+        submenu2.add(subitem13);  
         subitem14 = new JMenuItem("   Gysere   ");
         submenu2.add(subitem14);   
         subitem15 = new JMenuItem("   Familie Film   ");
-        submenu2.add(subitem15);   
+        submenu2.add(subitem15);    
         subitem16 = new JMenuItem("   Komedie   ");
-        submenu2.add(subitem16);   
+        submenu2.add(subitem16);
         subitem17 = new JMenuItem("   Krimi   ");
-        submenu2.add(subitem17);  
+        submenu2.add(subitem17); 
         subitem18 = new JMenuItem("   Romantik   ");
-        submenu2.add(subitem18);    
+        submenu2.add(subitem18);  
         subitem19 = new JMenuItem("   Sci-fi og fantasy   ");
         submenu2.add(subitem19);    
         subitem20 = new JMenuItem("   Thriller   ");
         submenu2.add(subitem20);
-        TvSeriesMenu.add(submenu2);    
+        TvSeriesMenu.add(submenu2); 
         menubar.setLayout(new BorderLayout());
         menubar.add(filmMenu, BorderLayout.LINE_START);
         menubar.add(TvSeriesMenu, BorderLayout.CENTER);
         menubar.add(user(), BorderLayout.LINE_END);
-        menubar.setPreferredSize(new Dimension(500, 50));  
+        menubar.setPreferredSize(new Dimension(500, 50));
+        panel2.setLayout(new BorderLayout());
         panel.setLayout(new BorderLayout());
-        panel1.setLayout(new BorderLayout());
-        panel.add(menubar, BorderLayout.SOUTH);
         panel.setPreferredSize(new Dimension(20,20));
-        frame.add(panel1);
+        panel.setPreferredSize(new Dimension(20,20));
+        frame.add(panel2);
         frame.add(panel,BorderLayout.NORTH);
         frame.setJMenuBar(menubar);
         frame.setSize(1000,800);
+        frame.getContentPane().setBackground(new Color(26,25,25));
         frame.getContentPane().add(menubar,BorderLayout.NORTH);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-    }  
+    }    
     public JMenu user(){
         final String items[] = new String[]{"       Tilføj ny bruger     ","       Se Profil      ", "       Skift bruger      "};
         JMenu userMenu = menu("               User               ",items);
@@ -100,47 +101,48 @@ public class GUI extends JFrame{
         JMenuItem tilføjNyBruger = (JMenuItem)userMenu.getItem(0);
         tilføjNyBruger.addActionListener(new ActionListener(){ 
          public void actionPerformed(ActionEvent e) {
-              JButton opret= new JButton("Opret");
-              JPanel nbPanel = new JPanel();
-              JLabel textOverskrift = new JLabel("Ny bruger");
-              JLabel textAlder = new JLabel("Alder:");
-              JLabel textNavn = new JLabel("Navn:");
-              JTextField userNavn = new JTextField("Indtast navn", 15);
-              JTextField userAlder = new JTextField("Indtast alder",15);
-              opret.setBounds(110,120,80,20);
-              userNavn.setBounds(70,50,150,20);
-              userAlder.setBounds(70,85,150,20);
-              textNavn.setBounds(20,48,80,20);
-              textAlder.setBounds(20,83,80,20);
-              textOverskrift.setBounds(20,20,80,20);
-              nbPanel.add(textOverskrift);
-              nbPanel.add(textNavn);
-              nbPanel.add(textAlder);
-              nbPanel.add(opret);
-              nbPanel.add(userNavn);
-              nbPanel.add(userAlder);
-              setSize(300,200);
-              setLocation(800,450);
-              getContentPane().add(nbPanel);        
-              nbPanel.setLayout(null); 
-              setVisible(true);
-              opret.addActionListener(new ActionListener(){
-                  public void actionPerformed(ActionEvent e) {
-                      try{  
-                          final int userage = Integer.parseInt(userAlder.getText());
-                          final String username = userNavn.getText();
-                          HandlingUser.AddNewUser(new User(username,userage));
-                          setVisible(false);   
-                      } catch(NumberFormatException ex){
-                          JOptionPane.showMessageDialog(nbPanel,
-                          "Alder skal være et tal");
-                                }                      
-                            }
-                        });
-                    }
+             JButton opret= new JButton("Opret");
+             JPanel nbPanel = new JPanel();
+             JLabel textOverskrift = new JLabel("Ny bruger");
+             JLabel textAlder = new JLabel("Alder:");
+             JLabel textNavn = new JLabel("Navn:");
+             JTextField userNavn = new JTextField("Indtast navn", 15);
+             JTextField userAlder = new JTextField("Indtast alder",15);
+             opret.setBounds(110,120,80,20);
+             userNavn.setBounds(70,50,150,20);
+             userAlder.setBounds(70,85,150,20);
+             textNavn.setBounds(20,48,80,20);
+             textAlder.setBounds(20,83,80,20);
+             textOverskrift.setBounds(20,20,80,20);
+             nbPanel.add(textOverskrift);
+             nbPanel.add(textNavn);
+             nbPanel.add(textAlder);
+             nbPanel.add(opret);
+             nbPanel.add(userNavn);
+             nbPanel.add(userAlder);
+             setSize(300,200);
+             setLocation(800,450);
+             getContentPane().add(nbPanel);        
+             nbPanel.setLayout(null); 
+             setVisible(true);
+             opret.addActionListener(new ActionListener(){
+                 public void actionPerformed(ActionEvent e) {
+                     try{  
+                         final int userage = Integer.parseInt(userAlder.getText());
+                         final String username = userNavn.getText();
+                         HandlingUser.AddNewUser(new User(username,userage));
+                         setVisible(false);   
+                     } catch(NumberFormatException ex){
+                         JOptionPane.showMessageDialog(nbPanel,
+                         "Alder skal være et tal");
+                     }                      
+                 
+                 }
+                      });
+         }
                 });
                 return userMenu;
-            }
+            } 
     public JMenu menu(String name, String...items){
         JMenu mymenu= new JMenu(name);
         for(String x: items){
@@ -158,28 +160,18 @@ class UserFrame implements MouseListener {
                 }
     public void mousePressed(MouseEvent e){
                 userFrame();
-                }            
+                }          
     public void mouseReleased(MouseEvent e){
-                }            
+                }           
     public static void userFrame(){
         JFrame userFrame = new JFrame();
         JLabel maintext = new JLabel("Min profil");
-        JLabel infoUser = new JLabel();      
-        JButton sletBruger = new JButton("Slet denne bruger");
-        maintext.setFont(new Font(maintext.getFont().getName(), maintext.getFont().getStyle(), 20));
-        maintext.setVerticalAlignment(JLabel.NORTH);
+        maintext.setBounds(20,20,100,70);
         JTextField infoText = new JTextField();
         userFrame.add(maintext);
-        userFrame.add(infoUser);
-        infoUser.setBounds(20,50,80,30);
-        maintext.setBounds(20,20,100,30);
-        infoUser.setFont(new Font(maintext.getFont().getName(), maintext.getFont().getStyle(), 15));
-        sletBruger.setBounds(100,120,80,20);
-        userFrame.add(sletBruger);        
         userFrame.setSize(500,400);
-        userFrame.setLocationRelativeTo(null);
-        userFrame.getContentPane().setBackground(new Color(166,166,166));    
-        userFrame.setVisible(true);               
+        userFrame.setLocationRelativeTo(null);  
+        userFrame.setVisible(true);                 
             }       
 }
 class ii implements MouseListener{
@@ -191,30 +183,31 @@ class ii implements MouseListener{
                 }
             public void mousePressed(MouseEvent e){
                 changeUserFrame();
-                }           
+                }                
             public void mouseReleased(MouseEvent e){
-                }           
-            public void changeUserFrame(){                
-                JFrame userFrame = new JFrame("Vælg bruger");
-                JButton[] buttons = new JButton[HandlingUser.users.size()];             
+                }          
+                public void changeUserFrame(){                
+                JFrame userFrame3 = new JFrame("Vælg bruger");
+                JButton[] buttons = new JButton[HandlingUser.users.size()];    
                 for(int i = 0; i < HandlingUser.users.size(); i++){
                     buttons[i] = new JButton(HandlingUser.users.get(i).toString1());
-                    userFrame.setLayout(new GridLayout(0,1));    
-                    userFrame.add(buttons[i]);
+                    userFrame3.setLayout(new GridLayout(0,1));    
+                    userFrame3.add(buttons[i]);
                     
                     }  
                 for(int i = 0; i < HandlingUser.users.size(); i++){
-                    buttons[i].addActionListener(new ActionListener() {
+                   final User  currentUser = HandlingUser.users.get(i); 
+                 buttons[i].addActionListener(new ActionListener() {
                         public void actionPerformed(ActionEvent e) {
                             
                             UserFrame.userFrame();
-                            userFrame.setVisible(false);
+                            userFrame3.setVisible(false);
                         }
                     });
                } 
-                userFrame.setSize(500,400);
-                userFrame.setLocationRelativeTo(null);
-                userFrame.getContentPane().setBackground(new Color(166,166,166));    
-                userFrame.setVisible(true);    
-            }
+                userFrame3.setSize(500,400);
+                userFrame3.setLocationRelativeTo(null);
+                userFrame3.getContentPane().setBackground(new Color(166,166,166));    
+                userFrame3.setVisible(true);    
+              }
         }
