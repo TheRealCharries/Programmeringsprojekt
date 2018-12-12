@@ -1,0 +1,46 @@
+import javax.imageio.ImageIO;
+import java.io.*;
+import java.util.*;
+import java.nio.file.*;
+import java.awt.image.*;
+import java.awt.*;
+
+public class MoviePicsLoader extends Observable {
+    private ArrayList<Image> images;
+    private Path imagesPath = FileSystems.getDefault().getPath("MPics");
+    private File dir;
+    private int index;
+
+    public MoviePicsLoader() {
+        dir = imagesPath.toFile();
+        images = new ArrayList<>();
+        loadImages();
+    }
+
+    private void loadImages() {
+        if(dir.isDirectory()) {
+            File[] imageFiles = dir.listFiles();
+            for(File file : imageFiles) {
+                try {
+                    BufferedImage img = ImageIO.read(file);
+
+                    images.add(img);
+                } catch(IOException ioe) {
+                    System.out.println(ioe.getMessage());
+                }
+            }
+        } else {
+            System.out.println("Not a directory");
+        }
+    }
+
+    private void initializeImages(){
+        //Måske lav image til et 2D Array istedet?
+        //Hver billede skal have en titel og et billede
+        //Find titel ved at splitte filnavn ved komma og brug args[0].
+        //Gør dette i forloop for image-listen.
+        
+        
+    }
+
+}
