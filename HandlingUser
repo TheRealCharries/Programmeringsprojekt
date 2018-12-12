@@ -1,27 +1,26 @@
 import java.util.*;
-public class HandlingUser
- {
+public class HandlingUser{
    public static ArrayList<User> users;
     
    public HandlingUser(){
+
        users = new ArrayList<User>();
 
    }
    
-   public void AddNewUser(User user){
+   public static void AddNewUser(User user){
        users.add(user);
    }
    
-   public void RemoveUser(User user){
+   public static void RemoveUser(User user){
        users.remove(user);
    }
-
+   
    public String toString(){
        String x = new String();
-        
        for(User user: users){
+           
            x = user.toString();
-         
 
         }
        return x;
