@@ -1,0 +1,101 @@
+
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class Profile extends JMenu{
+  User defaultUser = null;
+  public Profile(User defaultUser){
+    super("     Profile       ");
+    this.defaultUser = defaultUser;
+    final JMenuItem showPro = new JMenuItem("Vis profil");
+    this.add(showPro);
+    showPro.addActionListener( new ActionListener(){
+      public void actionPerformed(ActionEvent e) {
+        profilFrame();
+      }
+    });
+    final JMenuItem changePro = new JMenuItem("Change Profile");
+    this.add(changePro);
+    changePro.addActionListener( new ActionListener(){
+      public void actionPerformed(ActionEvent e) {
+        skiftProfil();
+      }
+    });
+    final JMenuItem newPro = new JMenuItem("Create Profile");
+    this.add(newPro);
+    newPro.addActionListener( new ActionListener(){
+      public void actionPerformed(ActionEvent e) {
+        tilføjProfil();
+      }
+    });
+  }
+
+  public void profilFrame(){
+    profilFrame(this.defaultUser);
+  }
+  public void profilFrame(User user){
+    if(null == defaultUser){
+      skiftProfil();
+    }else{
+      final JFrame info = new JFrame("Profile Information");
+      info.add(new JLabel(defaultUser.toString()));
+      info.setVisible(true);
+    }
+  }
+
+   public void skiftProfil(){                
+                JFrame userFrame3 = new JFrame("Vælg bruger");
+                JButton[] buttons = new JButton[User.users.size()];    
+                for(int i = 0; i < User.users.size(); i++){
+                    buttons[i] = new JButton(User.users.get(i).toString1());
+                    userFrame3.setLayout(new GridLayout(0,1));    
+                    userFrame3.add(buttons[i]);
+                   for(User user: User.users){
+                       buttons[i].addActionListener(new ActionListener() {
+                           public void actionPerformed(ActionEvent e) {
+                               profilFrame(user);
+                               userFrame3.setVisible(false);
+                        }
+                    });
+                   } 
+                    } 
+                userFrame3.setSize(500,400);
+                userFrame3.setLocationRelativeTo(null);
+                userFrame3.getContentPane().setBackground(new Color(166,166,166));    
+                userFrame3.setVisible(true);    
+              }
+        
+
+
+  public void tilføjProfil(){
+      JButton opret= new JButton("Opret");
+      JFrame nbPanel = new JFrame();
+      JLabel l1 = new JLabel("Tilføj ny bruger");
+      JTextField textNavn = new JTextField("Indtast navn");
+      JTextField textAlder = new JTextField("Indtast alder");
+      textNavn.setBounds(80,80,200,30);
+      textAlder.setBounds(80,120,200,30);
+      l1.setBounds(80,40,200,30);
+      opret.setBounds(80,150,200,30);
+      nbPanel.add(l1);
+      nbPanel.add(opret);
+      nbPanel.add(textNavn);
+      nbPanel.add(textAlder);
+      nbPanel.setSize(400, 300);
+      nbPanel.setLayout(null);
+      nbPanel.setVisible(true);
+      nbPanel.setLocation(800,450);
+      opret.addActionListener(new ActionListener(){
+          public void actionPerformed(ActionEvent e) {
+              try{
+                  final int userAge = Integer.parseInt(textAlder.getText());
+                  new User(textNavn.getText(),userAge);
+                  nbPanel.setVisible(false);
+                }catch(NumberFormatException exe){
+                    JOptionPane.showMessageDialog(null, "'" + textAlder.getText() + "' is not a number!");
+              } 
+                 }
+                      });
+}
+}
