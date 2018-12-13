@@ -1,26 +1,20 @@
 import java.util.*;
-public class User
-{
-    public final String name;
-    public int age;
-    protected boolean child;
-    
-    public User(String name, int age)
-    {
-        this.name = name;
-        this.age = age;
-        child = false;
-        //users.add(this);
-    }
-    public String getName(){
-        return name;
-    } 
-    public int getAge(){
-        return age;
-    }
+import java.util.ArrayList;
+public class User{
+  public static ArrayList<User> users = new ArrayList<>();
+  public final String name;
+  public int age;
+  public User(String name, int age){
+    this.name = name;
+    this.age = age;
+    users.add(this);
+
+  }
+  
     public boolean SetAllowance(){
-        return 13 <= age ;
-    }    
+        return 13 <= age;
+    }
+
     public String toString(){
         if(!SetAllowance()) {
             return  "Navn: " + name + ", alder: " + age + " år, Barn";}
