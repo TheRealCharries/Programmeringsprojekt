@@ -30,44 +30,42 @@ public class Profile extends JMenu{
       }
     });
   }
-
   public void profilFrame(){
     profilFrame(this.defaultUser);
   }
   public void profilFrame(User user){
-    if(null == defaultUser){
-      skiftProfil();
+    if(null == user){
+      JOptionPane.showMessageDialog(null, "No profile selected!");
     }else{
+      defaultUser = user;
       final JFrame info = new JFrame("Profile Information");
-      info.add(new JLabel(defaultUser.toString()));
+      info.add(new JLabel(user.toString()));
+    info.setSize(400, 300);
+    info.setVisible(true);
+    info.setLocation(800,450);
       info.setVisible(true);
     }
   }
 
-   public void skiftProfil(){                
-                JFrame userFrame3 = new JFrame("Vælg bruger");
-                JButton[] buttons = new JButton[User.users.size()];    
-                for(int i = 0; i < User.users.size(); i++){
-                    buttons[i] = new JButton(User.users.get(i).toString1());
-                    userFrame3.setLayout(new GridLayout(0,1));    
-                    userFrame3.add(buttons[i]);
-                   for(User user: User.users){
-                       buttons[i].addActionListener(new ActionListener() {
-                           public void actionPerformed(ActionEvent e) {
-                               profilFrame(user);
-                               userFrame3.setVisible(false);
-                        }
-                    });
-                   } 
-                    } 
-                userFrame3.setSize(500,400);
-                userFrame3.setLocationRelativeTo(null);
-                userFrame3.getContentPane().setBackground(new Color(166,166,166));    
-                userFrame3.setVisible(true);    
-              }
-        
-
-
+  public void skiftProfil(){
+    final JFrame window = new JFrame("Change Profile");
+    final JPanel back = new JPanel();
+    for (User user : User.users ) {
+      JButton userbutton = new JButton(user.toString());
+      userbutton.addActionListener(new ActionListener(){
+        public void actionPerformed(ActionEvent e) {
+          profilFrame(user);
+          window.setVisible(false);
+        }
+      });
+      back.add(userbutton);
+    }
+    window.setSize(400, 300);
+    window.setVisible(true);
+    window.setLocation(800,450);
+    window.add(back);
+    window.setVisible(true);
+  }
   public void tilføjProfil(){
       JButton opret= new JButton("Opret");
       JFrame nbPanel = new JFrame();
