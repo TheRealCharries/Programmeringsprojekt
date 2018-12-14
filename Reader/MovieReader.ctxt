@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=MovieReader
+comment1.params=
+comment1.target=MovieReader()
+comment2.params=
+comment2.target=java.util.List\ read()
+comment3.params=br
+comment3.target=java.util.List\ read(java.io.BufferedReader)
+comment4.params=
+comment4.target=void\ sortAlphbetic()
+comment5.params=
+comment5.target=void\ sortByYear()
+comment6.params=genre
+comment6.target=java.util.ArrayList\ sortByGenre(java.lang.String)
+numComments=7

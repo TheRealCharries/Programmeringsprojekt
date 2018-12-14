@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Video
+comment1.params=
+comment1.target=java.lang.String\ getTitle()
+comment2.params=
+comment2.target=java.lang.String[]\ getGenre()
+comment3.params=
+comment3.target=double\ getRating()
+comment4.params=
+comment4.target=boolean\ isRrated()
+comment5.params=
+comment5.target=java.awt.Image\ getPicture()
+numComments=6
