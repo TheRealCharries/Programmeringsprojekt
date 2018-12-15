@@ -1,0 +1,104 @@
+import java.awt.*;
+import java.awt.image.*;
+import javax.swing.*;
+import javax.imageio.ImageIO;
+import java.io.*;
+import java.util.ArrayList;
+import java.nio.file.*;
+
+public class SerieBilleder extends JPanel {
+    private JPanel billedPanel;
+    private ArrayList<ImageComponent> billeder;
+    private Path billedSti = FileSystems.getDefault().getPath("C:/Users/fthom/Desktop/ImagesToJava/serieforsider/Serier - billeder");
+    private File filesDirectory;
+    private JScrollPane skrålBar;
+
+    public SerieBilleder() {
+        filesDirectory = billedSti.toFile();
+        billeder = new ArrayList<>();
+        
+        opretBilledRamme();
+        
+        addBilleder();
+        
+    }
+    
+    private void hentBilleder() {
+        if(filesDirectory.isDirectory()) {
+            File[] billedFiler = filesDirectory.listFiles(new qq());
+            for(File billed : billedFiler) {
+                try {
+                    String imageFilename = billed.getName();
+                    BufferedImage img = ImageIO.read(billed);
+                    ImageComponent ic = new ImageComponent(img);
+                    billeder.add(ic);
+                } catch(IOException ioe) {
+                    System.out.println(ioe.getMessage());
+                }
+            }
+        } else {
+            System.out.println("De'jo ikk' en mapp' :(");
+        }
+    }
+    
+    private void addBilleder() {
+        int i = 0;
+        hentBilleder();
+        billedPanel = new JPanel();
+        billedPanel.setLayout(new GridLayout(0,6));
+        add(billedPanel, BorderLayout.CENTER);
+        for(i = 0; i < billeder.size(); i++){
+            billedPanel.add(billeder.get(i));
+        }
+        revalidate();
+        repaint();
+    }
+    
+    private void opretBilledRamme() {
+        setName("SerieBilledViser"); 
+    }
+ 
+    
+    class qq implements FilenameFilter {
+        private String[] EXTENSIONS = new String[]{
+            "jpg"
+        };
+        
+        @Override
+        public boolean accept(File filesDirectory, String name) {
+            for(String extension : EXTENSIONS) {
+                if (name.toLowerCase().endsWith("." + extension)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+    }
+
+    class ImageComponent extends JComponent{
+        private BufferedImage img;
+
+        public ImageComponent(BufferedImage img) {
+            this.img = img;
+        }
+
+        public void paint(Graphics g) {
+            g.drawImage(img, 0, 0, null);
+        }
+
+        public Dimension getPreferredSize() {
+            if (img == null) {
+                return new Dimension(100,100);
+            } else {
+                return new Dimension(img.getWidth(null), img.getHeight(null));
+            }
+        }
+    }
+
+    public static void main(String[] args)  {
+        
+        
+        SerieBilleder app = new SerieBilleder();
+        app.setVisible(true);
+    }
+}
