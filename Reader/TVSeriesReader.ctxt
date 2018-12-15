@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=TVSeriesReader
+comment1.params=
+comment1.target=TVSeriesReader()
+comment2.params=
+comment2.target=java.util.ArrayList\ read()
+comment3.params=br
+comment3.target=java.util.ArrayList\ read(java.io.BufferedReader)
+comment4.params=
+comment4.target=void\ sortAlphbetic()
+comment5.params=
+comment5.target=void\ sortByStartYear()
+comment6.params=genre
+comment6.target=java.util.ArrayList\ sortByGenre(java.lang.String)
+comment7.params=
+comment7.target=java.util.ArrayList\ getTVPictures()
+numComments=8
