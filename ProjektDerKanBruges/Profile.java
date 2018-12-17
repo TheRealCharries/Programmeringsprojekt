@@ -1,0 +1,137 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+public class Profile extends JMenu{
+  User defaultUser = null;
+  public Profile(User defaultUser){
+    super("     Profile       ");
+    this.defaultUser = defaultUser;
+    final JMenuItem showPro = new JMenuItem("Vis profil");
+    this.add(showPro);
+    showPro.addActionListener( new ActionListener(){
+      public void actionPerformed(ActionEvent e) {
+        profilFrame();
+      }
+    });
+    final JMenuItem changePro = new JMenuItem("Skift profil");
+    this.add(changePro);
+    changePro.addActionListener( new ActionListener(){
+      public void actionPerformed(ActionEvent e) {
+        skiftProfil();
+      }
+    });
+    final JMenuItem newPro = new JMenuItem("Opret profil");
+    this.add(newPro);
+    newPro.addActionListener( new ActionListener(){
+      public void actionPerformed(ActionEvent e) {
+        tilføjProfil();
+      }
+    });
+  }
+  public void profilFrame(){
+    profilFrame(this.defaultUser);
+  }
+  public void profilFrame(User user){
+    if(null == user){
+      JOptionPane.showMessageDialog(null, "No profile selected!");
+    }else{
+    defaultUser = user;
+    final JFrame info = new JFrame("Profile Information");
+    info.add(new JLabel(user.toString()));
+    info.setSize(400, 300);
+    info.setVisible(true);
+    info.setLocation(800,450);
+    info.setVisible(true);
+    }
+  }
+
+  public void skiftProfil(){
+       final JFrame window = new JFrame("Change Profile");
+       final JPanel back = new JPanel();
+       JButton rButton = new JButton("Slet bruger");
+        for (User user : User.users ) {
+           JButton userbutton = new JButton(user.toString());
+           userbutton.addActionListener(new ActionListener(){
+               public void actionPerformed(ActionEvent e) {
+                   profilFrame(user);
+                   window.setVisible(false);
+               }
+           });
+           back.add(userbutton);
+        }
+       back.add(rButton);
+       rButton.setBounds(20,130,100,30);
+       rButton.addActionListener(new ActionListener(){
+       public void actionPerformed(ActionEvent e) {
+           sletBruger();
+           window.setVisible(false);
+       }
+       });
+       window.setSize(400, 300);
+       window.setVisible(true);
+       window.setLocation(800,450);
+       window.add(back);
+       window.setVisible(true);
+  }
+  
+  public void tilføjProfil(){
+      JButton opret= new JButton("Opret");
+      JFrame nbPanel = new JFrame();
+      JLabel l1 = new JLabel("Tilføj ny bruger");
+      JTextField textNavn = new JTextField("Indtast navn");
+      JTextField textAlder = new JTextField("Indtast alder");
+      textNavn.setBounds(80,80,200,30);
+      textAlder.setBounds(80,120,200,30);
+      l1.setBounds(80,40,200,30);
+      opret.setBounds(80,150,200,30);
+      nbPanel.add(l1);
+      nbPanel.add(opret);
+      nbPanel.add(textNavn);
+      nbPanel.add(textAlder);
+      nbPanel.setSize(400, 300);
+      nbPanel.setLayout(null);
+      nbPanel.setVisible(true);
+      nbPanel.setLocation(800,450);
+      opret.addActionListener(new ActionListener(){
+          public void actionPerformed(ActionEvent e) {
+              try{
+                  final int userAge = Integer.parseInt(textAlder.getText());
+                  new User(textNavn.getText(),userAge);
+                  nbPanel.setVisible(false);
+                }catch(NumberFormatException exe){
+                    JOptionPane.showMessageDialog(null, "'" + textAlder.getText() + "' is not a number!");
+              } 
+          }
+      });
+  }
+
+  public void sletBruger(){
+      JButton slet= new JButton("Slet bruger");
+      JFrame sPanel = new JFrame();
+      JLabel l1 = new JLabel("Slet eksisterende bruger");
+      JTextField textNavn = new JTextField("Indtast navn");
+      JTextField textAlder = new JTextField("Indtast alder");
+      textNavn.setBounds(80,80,200,30);
+      textAlder.setBounds(80,120,200,30);
+      l1.setBounds(80,40,200,30);
+      slet.setBounds(80,150,200,30);
+      sPanel.add(l1);
+      sPanel.add(slet);
+      sPanel.add(textNavn);
+      sPanel.add(textAlder);
+      sPanel.setSize(400, 300);
+      sPanel.setLayout(null);
+      sPanel.setVisible(true);
+      sPanel.setLocation(800,450);
+      slet.addActionListener(new ActionListener(){
+          public void actionPerformed(ActionEvent e) {
+              try{
+
+                }catch(NumberFormatException exe){
+                    JOptionPane.showMessageDialog(null, "'" + textAlder.getText() + "' is not a number!");
+              } 
+                 }
+                });
+  }
+}
